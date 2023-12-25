@@ -7,9 +7,11 @@
 <title>MU:TE</title>
 <link rel="stylesheet" href="resources/css/result.css">
 <link rel="stylesheet" href="resources/css/modal.css">
+
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
 <!-- Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script
@@ -17,8 +19,6 @@
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-
 </head>
 <body>
 	<header>
@@ -34,24 +34,23 @@
 	</header>
 	<table class="table1">
 		<tr>
-			<td><img alt="gom_ballad" src="resources/images/gom_ballad.png"
+			<td><img alt="gom_hiphop" src="resources/images/gom_hiphop.png"
 				height="500" width="500"></td>
 		</tr>
 		<tr>
-			<td><a class="ballad" style="color: #512626;">발라드를 좋아하는 당신은
-					초코, 우리 이제 헤이즐넛!</a></td>
+			<td><a class="hiphop" style="color: #00748D;">힙합을 좋아하는 당신은
+					민트초콜릿 칩!</a></td>
 		</tr>
 		<tr>
-			<td><a class="ballad" style="color: #512626;">ㄴr는 지금 눈물을
-					흘린ㄷr..</a></td>
+			<td><a class="hiphop" style="color: #00748D;">어쩔 민초 저쩔 힙합~</a></td>
 		</tr>
 	</table>
 	<br>
 
 	<div class="con">
-    <div class="reco">
-        <br> <a class="tag">당신을 위한 #발라드 음악</a><br> <br>
-        <table class="table2">
+		<div class="reco">
+			<br> <a class="tag">당신을 위한 #힙합 음악</a><br> <br>
+			<table class="table2">
             <c:if test="${not empty recommendations}">
                 <c:forEach var="track" items="${recommendations}">
                     <tr>
@@ -62,7 +61,7 @@
                             </div>
                         </td>
                         <td>
-                            ${track.name} by
+                            ${track.name}
                         </td>
                         <td>
                         	 ${track.artistName}
@@ -158,8 +157,8 @@
 </div>
 
 <div class="notification" id="notification">
-    	음악을 플레이리스트에 저장했습니다!
-  	</div>
+   음악을 플레이리스트에 저장했습니다!
+</div>
 
 	<script>
 	
@@ -191,7 +190,6 @@
 	        mct.value = '';
 	    });
 	});
-		
 	
 	function toggleModal(modalId) {
         $('#' + modalId).modal('toggle');
@@ -233,7 +231,7 @@
     let isPlus2 = false;
     let isPlus3 = false;
     
-   /*  toggleButton('buttonImage1', isPaused1);
+/*     toggleButton('buttonImage1', isPaused1);
     toggleButton('buttonImage2', isPaused2);
     toggleButton('buttonImage3', isPaused3);
     
@@ -326,32 +324,7 @@
                 },
             });
         }
-        
-     	// 음량 조절 함수
-        // 음량 조절 함수
-function setVolume(volume) {
-    console.log('볼륨 조절: ' + volume);
-
-    $.ajax({
-        url: SPOTIFY_API_BASE + '/volume?volume_percent=' + volume, // 수정된 부분
-        type: 'PUT',
-        headers: {
-            'Authorization': 'Bearer ' + accessToken,
-        },
-        success: function () {
-            console.log('볼륨 조절 성공');
-        },
-        error: function (error) {
-            console.error('볼륨 조절 실패:', error);
-            console.error('API 호출 실패 상세 정보:', error.responseJSON);
-        },
-    });
-
-    // UI에 현재 볼륨 표시
-    $('#volumeLabel').text(volume);
-}
 
     </script>
-
 </body>
 </html>
