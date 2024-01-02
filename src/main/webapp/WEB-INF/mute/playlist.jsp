@@ -321,20 +321,7 @@
                         btnPlayer.setAttribute('src', '/mute/resources/images/play_pl.png');
                     }
                 }
-                /* function musicPlay2(){
-                    let n=btnPlayer.getAttribute('isplay_test');
-                    var trackUri = btnPlayer.getAttribute('data-track-uri');
-                    alert("n="+n)
-                    if(n=='1'){
-                        player.resume().then(()=>{
-                            trackState[trackUri]=true;
-                        })
-                    }else{
-                        player.pause().then(()=>{
-                            trackState[trackUri]=false;
-                        })
-                    }
-                } */
+                
                 /* 음악 재생 */
                 function musicPlay() {
                     var trackId = btnPlayer.getAttribute('data-track-id');
