@@ -8,29 +8,28 @@
 	<title>MU:TE</title>
 </head>
 <body>
-	<div class="totaldiv">
+<div class="totaldiv">
 	<div class="logodiv">
 	<a href="main"><img class="logo" src="resources/images/mutelogo.png"></a>
 	</div>
-	
-	<div class="question">
-    	 <h1>Q6.<br> 벚꽃이 휘날리는 봄, <br>당신이 들을 노래는?</h1>
-			<!-- 버튼 클릭시 selectGenre(value) 함수를 통해 각 선택지 별 해당하는 장르 count++ -->
-	        <button class="btn" onclick="selectGenre(1)" onmouseover="addShadow(this)" onmouseout="removeShadow(this)">벚꽃엔딩 - 버스커버스커</button>
-	        <button class="btn" onclick="selectGenre(2)" onmouseover="addShadow(this)" onmouseout="removeShadow(this)">교향곡 제1번 봄 - 슈만</button>
-	        <button class="btn" onclick="selectGenre(3)" onmouseover="addShadow(this)" onmouseout="removeShadow(this)">봄 사랑 벚꽃말고 - 아이유</button>
-	        <button class="btn" onclick="selectGenre(4)" onmouseover="addShadow(this)" onmouseout="removeShadow(this)">고속도로 로망스 - 김장훈</button>
-    </div>
-   <script>
+		<div class="question">
+	    	 <h1>Q6.<br> 벚꽃이 휘날리는 봄, <br>당신이 들을 노래는?</h1>
+				<!-- 버튼 클릭시 selectGenre(value) 함수를 통해 각 선택지 별 해당하는 장르 count++ -->
+		        <button class="btn" onclick="selectGenre(1)" onmouseover="addShadow(this)" onmouseout="removeShadow(this)">벚꽃엔딩 - 버스커버스커</button>
+		        <button class="btn" onclick="selectGenre(2)" onmouseover="addShadow(this)" onmouseout="removeShadow(this)">교향곡 제1번 봄 - 슈만</button>
+		        <button class="btn" onclick="selectGenre(3)" onmouseover="addShadow(this)" onmouseout="removeShadow(this)">봄 사랑 벚꽃말고 - 아이유</button>
+		        <button class="btn" onclick="selectGenre(4)" onmouseover="addShadow(this)" onmouseout="removeShadow(this)">고속도로 로망스 - 김장훈</button>
+	    </div>
+</div>	    
+<script>
 	   /* 보기 버튼에 마우스 올리면 그림자 생김 */
 		function addShadow(element) {
 		    element.classList.add('shadow');}
 		function removeShadow(element) {
 		    element.classList.remove('shadow');}
 		/* ---------------------------------- */
-	
    		// 길이가 10인 Genres 배열을 선언하고 모든 인덱스값을 0으로 초기화
-   		/* 장르 배열 (0:락, 1:발라드, 2:테크노, 3:알앤비, 4:힙합, 5:클래식, 6:인디, 7:디스코, 8:재즈, 9:댄스) */
+   		/* 장르 배열 (0:락, 1:포크, 2:테크노, 3:알앤비, 4:힙합, 5:클래식, 6:인디, 7:디스코, 8:재즈, 9:댄스) */
         let Genres = Array(10).fill(0);
         function selectGenre(value) {
             if (value === 1) {	/* 인덱스 증가 처리 */
@@ -43,7 +42,7 @@
                 Genres[5]++;
                 Genres[8]++;
             } else if (value === 3) {
-            	// 락, 발라드, 힙합
+            	// 락, 포크, 힙합
                 Genres[0]++;
                 Genres[1]++;
                 Genres[4]++;
@@ -53,10 +52,9 @@
                 Genres[7]++;
                 Genres[9]++;
             }
-            
-	       	sendGenresToServer(Genres);//Genres 카운트 후 Genres 배열을 서버로 보내는 함수 작성 필요
+	       	sendGenresToServer(Genres);//Genres 카운트 후 Genres 배열을 서버로 보내는 함수
 	       	console.log(Genres);//콘솔에 배열 찍히는지 확인용
-	       	window.location.href = `test7`;// test6에서 해당 장르 배열 인덱스 값 증가 후 스크립트 내에서 페이지 이동하게
+	       	window.location.href = `test7`;// test6에서 해당 장르 배열 인덱스 값 증가 후 스크립트 내에서 페이지 이동
         }//------------------------------------
         
         //서버에 배열 전달 하는 함수
