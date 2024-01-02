@@ -109,15 +109,15 @@
 				</tr>
 				<tr>
 					<td><a href="/mute/result_disco"><img class="table4img" src="resources/images/gom_disco.png"></a></td>
-					<td><a href="/mute/result_hip-hop"><img class="table4img" src="resources/images/gom_hiphop.png"></a></td>
+					<td><a href="/mute/result_dance"><img class="table4img" src="resources/images/gom_dance.png"></a></td>
 				</tr>
 				<tr>
 					<td class="table4icname"><a href="/mute/result_disco" style="color:#C56834;">아몬드봉봉</a></td>
-					<td class="table4icname"><a href="/mute/result_hip-hop" style="color:#00748D;">민트초콜릿칩</a></td>
+					<td class="table4icname"><a href="/mute/result_dance" style="color:#FCAD36;">레인보우샤베트</a></td>
 				</tr>
 				<tr>
 					<td class="table4tag"><a href="/mute/result_disco" style="color: black;">#디스코</a></td>
-					<td class="table4tag"><a href="/mute/result_hip-hop" style="color: black;">#힙합</a></td>
+					<td class="table4tag"><a href="/mute/result_dance" style="color: black;">#댄스</a></td>
 				</tr>
 			</table>
 			

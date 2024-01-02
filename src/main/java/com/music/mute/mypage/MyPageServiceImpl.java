@@ -1,7 +1,6 @@
 package com.music.mute.mypage;
 
 import java.util.concurrent.CompletableFuture;
-
 import javax.inject.Inject;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,53 +22,53 @@ public class MyPageServiceImpl implements MyPageService {
 	@Inject
 	private MemberMapper memberMapper;
 	@Autowired
-    private SpotifyApi spotifyApi;
+	private SpotifyApi spotifyApi;
+	
+	@Override
+	public void updatePlaylist(String accessToken, String playlistId, String editPlaylistName) throws Exception {
+		if (accessToken != null) {
+			try {
+				spotifyApi.setAccessToken(accessToken);
+				// Spotify API를 사용하여 플레이리스트의 이름을 변경
+				final ChangePlaylistsDetailsRequest changePlaylistDetailsRequest = spotifyApi
+						.changePlaylistsDetails(playlistId).name(editPlaylistName).build();
+				changePlaylistDetailsRequest.execute();
+			}catch (Exception e) {
+				e.printStackTrace();
+				throw new Exception("Error updating playlist");
+			}
+		}else{
+			throw new UnauthorizedException("User not authenticated");
+		}
+	}//updatePlaylist------------------------------------------------------
+
+	@Override
+	public void deletePlaylist(String accessToken, String playlistId) throws Exception {
+		if (accessToken != null) {
+			try {
+				spotifyApi.setAccessToken(accessToken);
+				// 플레이리스트 언팔로우 API 요청
+				final UnfollowPlaylistRequest unfollowPlaylistRequest = spotifyApi.unfollowPlaylist(playlistId).build();
+				unfollowPlaylistRequest.execute();
+				// 삭제 후, 적절한 응답 반환 (이 경우, void 이므로 반환 없이 작업 완료)
+			}catch (Exception e) {
+				e.printStackTrace();
+				throw new Exception("Error deleting playlist");
+			}
+		}else{
+			throw new UnauthorizedException("User not authenticated");
+		}
+	}//deletePlaylist------------------------------------------------------
 	
 	@Override
 	public MemberVO mypageNickName(String userid) {
 		return memberMapper.getMemberBySpotifyUserId(userid);
-	}
+	}//mypageNickName------------------------------------------------------
 
 	@Override
 	public void updateNickname(MemberVO member) {
 		memberMapper.updateNickname(member);
-	}
+	}//updateNickname------------------------------------------------------
 	
-	 @Override
-	    public void deletePlaylist(String accessToken, String playlistId) throws Exception {
-	        if (accessToken != null) {
-	            try {
-	                spotifyApi.setAccessToken(accessToken);
-	                // 플레이리스트 언팔로우 API 요청
-	                final UnfollowPlaylistRequest unfollowPlaylistRequest = spotifyApi.unfollowPlaylist(playlistId).build();
-	                unfollowPlaylistRequest.execute();
-	                // 삭제 후, 적절한 응답 반환 (이 경우, void 이므로 반환 없이 작업 완료)
-	            } catch (Exception e) {
-	                e.printStackTrace();
-	                throw new Exception("Error deleting playlist");
-	            }
-	        } else{
-	            throw new UnauthorizedException("User not authenticated");
-	        }
-	    }
-	 
-	 @Override
-	    public void updatePlaylist(String accessToken, String playlistId, String editPlaylistName) throws Exception {
-	        if (accessToken != null) {
-	            try {
-	                spotifyApi.setAccessToken(accessToken);
-	                // Spotify API를 사용하여 플레이리스트의 이름을 변경
-	                final ChangePlaylistsDetailsRequest changePlaylistDetailsRequest = spotifyApi
-	                        .changePlaylistsDetails(playlistId)
-	                        .name(editPlaylistName)
-	                        .build();
-	                changePlaylistDetailsRequest.execute();
-	            } catch (Exception e) {
-	                e.printStackTrace();
-	                throw new Exception("Error updating playlist");
-	            }
-	        } else{
-	            throw new UnauthorizedException("User not authenticated");
-	        }
-	    }
-	}
+	
+}

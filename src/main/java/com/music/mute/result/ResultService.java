@@ -13,21 +13,23 @@ import com.music.mute.api.TrackWithImageUrlVO;
 
 import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
 import se.michaelthelin.spotify.model_objects.miscellaneous.Device;
+import se.michaelthelin.spotify.model_objects.specification.Recommendations;
 
 @Service
 public interface ResultService {
 		
     String getResultPage(Model model, HttpSession session, String genre);
 	
+    List<TrackWithImageUrlVO> getGenreRecommendationTracks(String accessToken, String genre) throws IOException, SpotifyWebApiException, ParseException;
+    
+    Recommendations getRecommendations(String genre, String accessToken) throws IOException, SpotifyWebApiException, ParseException;
+    
 	Device getCurrentDevice(String accessToken) throws IOException, SpotifyWebApiException, ParseException;
 	
 	String handleException(Exception e, Model model);
 	
-	List<TrackWithImageUrlVO> getGenreRecommendationTracks(String accessToken, String genre) throws IOException, SpotifyWebApiException, ParseException;
-	
 	String getAlbumId(String trackId, String accessToken) throws ParseException;
 	
 	String getAlbumCoverImageUrl(String albumId, String accessToken) throws ParseException;
-	
 
 }

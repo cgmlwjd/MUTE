@@ -64,22 +64,17 @@ public class ResultServiceImpl implements ResultService {
                 model.addAttribute("playlists", playlists);
 
                 String playlistId = playlists[0].getId();
-                GetRecommendationsRequest recommendationsRequest = spotifyApi
-                        .getRecommendations()
-                        .seed_genres(genre)
-                        .limit(3)
-                        .build();
-                CompletableFuture<Recommendations> recommendationsFuture = recommendationsRequest.executeAsync();
-                Track[] recommendations = recommendationsFuture.join().getTracks();
+                // 중복 코드 최소화: getRecommendations 메서드 활용
+                Recommendations recommendations = getRecommendations(genre, accessToken);
+                Track[] tracks = recommendations.getTracks();
 
-                for (Track track : recommendations) {
+                for (Track track : tracks) {
                     String trackAlbumId = getAlbumId(track.getId(), accessToken);
                     String coverImageUrl = getAlbumCoverImageUrl(trackAlbumId, accessToken);
                     TrackWithImageUrlVO newTrack = new TrackWithImageUrlVO(track, coverImageUrl);
                     recommendationsList.add(newTrack);
-
                 }
-
+                
 				model.addAttribute("recommendations", recommendationsList);
                 System.out.println("getGenreRecommendations 메서드가 호출되었습니다.");
                 System.out.println("Recommendations List: " + recommendationsList);
@@ -96,6 +91,33 @@ public class ResultServiceImpl implements ResultService {
         // 여기서 페이지 정보에 따라 다른 결과 페이지를 반환
         return "result/result_" + genre;
 	}
+	
+	@Override
+	public List<TrackWithImageUrlVO> getGenreRecommendationTracks(String accessToken, String genre) 
+			throws IOException, SpotifyWebApiException, ParseException {
+		
+        Recommendations recommendations = getRecommendations(genre, accessToken);
+        List<TrackWithImageUrlVO> recommendationList = new ArrayList<>();
+        for (Track track : recommendations.getTracks()) {
+            String trackAlbumId = getAlbumId(track.getId(), accessToken);
+            String coverImageUrl = getAlbumCoverImageUrl(trackAlbumId, accessToken);
+            TrackWithImageUrlVO newTrack = new TrackWithImageUrlVO(track, coverImageUrl);
+            recommendationList.add(newTrack);
+        }
+        return recommendationList;
+	}
+	
+	@Override
+	public Recommendations getRecommendations(String genre, String accessToken) 
+			throws IOException, SpotifyWebApiException, ParseException {
+		GetRecommendationsRequest recommendationsRequest = spotifyApi
+                .getRecommendations()
+                .seed_genres(genre)
+                .limit(3)
+                .build();
+        return recommendationsRequest.execute();
+	}
+	
 
 	@Override
 	public Device getCurrentDevice(String accessToken) throws IOException, SpotifyWebApiException, ParseException {
@@ -136,26 +158,7 @@ public class ResultServiceImpl implements ResultService {
 		return "/errorPage";
 	}
 
-	@Override
-	public List<TrackWithImageUrlVO> getGenreRecommendationTracks(String accessToken, String genre)throws IOException, SpotifyWebApiException, ParseException  {
-		GetRecommendationsRequest recommendationsRequest = spotifyApi
-                .getRecommendations()
-                .seed_genres(genre)
-                .limit(3)
-                .build();
-        Recommendations recommendations = recommendationsRequest.execute();
-
-        List<TrackWithImageUrlVO> recommendationList = new ArrayList<>();
-        for (Track track : recommendations.getTracks()) {
-            String trackAlbumId = getAlbumId(track.getId(), accessToken);
-            String coverImageUrl = getAlbumCoverImageUrl(trackAlbumId, accessToken);
-            TrackWithImageUrlVO newTrack = new TrackWithImageUrlVO(track, coverImageUrl);
-            recommendationList.add(newTrack);
-        }
-
-        return recommendationList;
-	}
-
+	
 	@Override
 	public String getAlbumId(String trackId, String accessToken) throws ParseException {
 		 try {

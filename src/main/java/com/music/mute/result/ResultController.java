@@ -45,7 +45,7 @@ public class ResultController {
     @Autowired
     private ResultService service;
     
-    private static final Logger logger = LoggerFactory.getLogger(AllResultController.class);
+    //private static final Logger logger = LoggerFactory.getLogger(AllResultController.class);
 
     @GetMapping("/result_folk")
     public String resultBallad(Model model, HttpSession session) {
@@ -96,11 +96,7 @@ public class ResultController {
     public String resultRock(Model model, HttpSession session) {
         return service.getResultPage(model, session, "rock");
     }
-    
-    @GetMapping("/result_acoustic")
-    public String resultAcoustic(Model model, HttpSession session) {
-        return service.getResultPage(model, session, "acoustic");
-    }
+
     
     @GetMapping("/play/{trackId}")
     @ResponseBody
@@ -135,100 +131,6 @@ public class ResultController {
 		}
 		return map;
 	}
-	/*
-    @GetMapping("/pause/{trackId}")
-    public String pausePlayback(@PathVariable String trackId, HttpSession session) {
-        try {
-            String accessToken = (String) session.getAttribute("accessToken");
-            if (accessToken != null) {
-                // 현재 사용자의 활성 디바이스 ID 가져오기
-                GetInformationAboutUsersCurrentPlaybackRequest playbackRequest = spotifyApi
-                        .getInformationAboutUsersCurrentPlayback().build();
-                CompletableFuture<CurrentlyPlayingContext> playbackFuture = playbackRequest.executeAsync();
-                CurrentlyPlayingContext playbackContext = playbackFuture.join();
-                Device currentDevice = playbackContext.getDevice();
-                String deviceId = (currentDevice != null) ? currentDevice.getId() : null;
-                // 세션에 저장된 액세스 토큰 및 디바이스 ID를 사용하여 pausePlayback 호출
-                playbackService.pausePlayback(accessToken, deviceId);
-                System.out.println("Pause playback for track " + trackId);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "redirect:/track/" + trackId;
-    }
-
-	@GetMapping("/devices/{trackId}")
-    public String getDevices(@PathVariable String trackId, Model model, HttpSession session) {
-        String accessToken = (String) session.getAttribute("accessToken");
-        if (accessToken != null) {
-            try {
-                spotifyApi.setAccessToken(accessToken);
-                GetInformationAboutUsersCurrentPlaybackRequest playbackRequest = spotifyApi
-                        .getInformationAboutUsersCurrentPlayback().build();
-                CompletableFuture<CurrentlyPlayingContext> playbackFuture = playbackRequest.executeAsync();
-                CurrentlyPlayingContext playbackContext = playbackFuture.join();
-                // 현재 재생 중인 기기 가져오기
-                Device currentDevice = playbackContext.getDevice();
-                model.addAttribute("currentDevice", currentDevice);
-                session.setAttribute("currentDevice", currentDevice);
-                // 추가: 모든 연결된 기기 가져오기
-                GetUsersAvailableDevicesRequest devicesRequest = spotifyApi.getUsersAvailableDevices().build();
-                CompletableFuture<Device[]> devicesFuture = devicesRequest.executeAsync();
-                Device[] devices = devicesFuture.join();
-                model.addAttribute("devices", Arrays.asList(devices));
-                // 추가: 메서드가 호출되었음을 로깅
-                System.out.println("getDevices 메서드가 호출되었습니다.");
-            } catch (Exception e) {
-                model.addAttribute("error", "기기 목록을 가져오는 중에 오류가 발생했습니다.");
-                return "/errorPage";
-            }
-        } else {
-            return "redirect:/login";
-        }
-        return "/devices/"+trackId;
-    }
-	
-	@GetMapping("/getCurrentPlayback/{userId}")
-	public String getCurrentPlayback(@PathVariable String userId, Model model, HttpSession session) {
-	    String accessToken = (String) session.getAttribute("accessToken");
-	    if (accessToken != null) {
-	        try {
-	            spotifyApi.setAccessToken(accessToken);
-	            GetInformationAboutUsersCurrentPlaybackRequest playbackRequest = spotifyApi
-	                    .getInformationAboutUsersCurrentPlayback()
-	                    .build();
-	            CompletableFuture<CurrentlyPlayingContext> playbackFuture = playbackRequest.executeAsync();
-	            CurrentlyPlayingContext playbackContext = playbackFuture.join();
-
-	            // 현재 재생 중인 기기 가져오기
-	            Device currentDevice = playbackContext.getDevice();
-	            model.addAttribute("currentDevice", currentDevice);
-
-	            // 추가: 모든 연결된 기기 가져오기
-	            GetUsersAvailableDevicesRequest devicesRequest = spotifyApi
-	                    .getUsersAvailableDevices()
-	                    .build();
-	            CompletableFuture<Device[]> devicesFuture = devicesRequest.executeAsync();
-	            Device[] devices = devicesFuture.join();
-
-	            model.addAttribute("devices", Arrays.asList(devices));
-	            
-	            // 추가: userId를 모델에 추가
-	            model.addAttribute("userId", userId);
-
-	            // 추가: 메서드가 호출되었음을 로깅
-	            System.out.println("getCurrentPlayback 메서드가 호출되었습니다.");
-
-	        } catch (Exception e) {
-	            model.addAttribute("error", "현재 재생 상태를 가져오는 중에 오류가 발생했습니다.");
-	            return "/errorPage";
-	        }
-	    } else {
-	        return "redirect:/login";
-	    }
-	    return "redirect:/getCurrentPlayback/" + userId; 
-    }*/
     
     @PostMapping(value="/addPlaylist", produces = {"application/json"})
     @ResponseBody

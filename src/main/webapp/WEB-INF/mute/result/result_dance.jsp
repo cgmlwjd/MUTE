@@ -127,15 +127,15 @@
 				</tr>
 				<tr>
 					<td><a href="/mute/result_folk"><img class="table4img" src="resources/images/gom_ballad.png"></a></td>
-					<td><a href="/mute/result_jazz"><img class="table4img" src="resources/images/gom_jazz.png"></a></td>
+					<td><a href="/mute/result_indie"><img class="table4img" src="resources/images/gom_indie.png"></a></td>
 				</tr>
 				<tr>
 					<td  class="table4icname"><a href="/mute/result_folk" style="color:#512626;">초코,우리이제헤이즐넛</a></td>
-					<td class="table4icname"><a href="/mute/result_jazz" style="color:#C07A56;">뉴욕치즈케이크</a></td>
+					<td class="table4icname"><a href="/mute/result_indie" style="color:#F34242;">사랑에빠진딸기</a></td>
 				</tr>
 				<tr>
 					<td class="table4tag"><a href="/mute/result_folk" style="color: black;">#발라드</a></td>
-					<td class="table4tag"><a href="/mute/result_jazz" style="color: black;">#재즈</a></td>
+					<td class="table4tag"><a href="/mute/result_indie" style="color: black;">#인디</a></td>
 				</tr>
 			</table>
 		</div>
