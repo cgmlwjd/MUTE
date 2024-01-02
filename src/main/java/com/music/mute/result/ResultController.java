@@ -45,7 +45,7 @@ public class ResultController {
     @Autowired
     private ResultService service;
     
-    private static final Logger logger = LoggerFactory.getLogger(AllResultController.class);
+    //private static final Logger logger = LoggerFactory.getLogger(AllResultController.class);
 
     @GetMapping("/result_folk")
     public String resultBallad(Model model, HttpSession session) {

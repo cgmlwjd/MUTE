@@ -107,15 +107,15 @@
 					</td>
 				</tr>
 				<tr>
-					<td><a href="/mute/result_rock"><img class="table4img" src="resources/images/gom_rock.png"></a></td>
+					<td><a href="/mute/result_indie"><img class="table4img" src="resources/images/gom_indie.png"></a></td>
 					<td><a href="/mute/result_hip-hop"><img class="table4img" src="resources/images/gom_hiphop.png"></a></td>
 				</tr>
 				<tr>
-					<td class="table4icname"><a href="/mute/result_rock" style="color:#5EA9EF;">슈팅스타</a></td>
+					<td class="table4icname"><a href="/mute/result_indie" style="color:#F34242;">사랑에빠진딸기</a></td>
 					<td class="table4icname"><a href="/mute/result_hip-hop" style="color:#00748D;">민트초콜릿칩</a></td>
 				</tr>
 				<tr>
-					<td class="table4tag"><a href="/mute/result_rock" style="color: black;">#락</a></td>
+					<td class="table4tag"><a href="/mute/result_indie" style="color: black;">#인디</a></td>
 					<td class="table4tag"><a href="/mute/result_hip-hop" style="color: black;">#힙합</a></td>
 				</tr>
 			</table>
@@ -127,16 +127,16 @@
 					</td>
 				</tr>
 				<tr>
-					<td><a href="/mute/result_classical"><img class="table4img" src="resources/images/gom_classic.png"></a></td>
-					<td><a href="/mute/result_r-n-b"><img class="table4img" src="resources/images/gom_rnb.png"></a></td>
+					<td><a href="/mute/result_dance"><img class="table4img" src="resources/images/gom_dance.png"></a></td>
+					<td><a href="/mute/result_disco"><img class="table4img" src="resources/images/gom_disco.png"></a></td>
 				</tr>
 				<tr>
-					<td  class="table4icname"><a href="/mute/result_classical" style="color:#002EA5;">피스타치오</a></td>
-					<td class="table4icname"><a href="/mute/result_r-n-b" style="color:#624224;">오레오쿠키앤크림</a></td>
+					<td  class="table4icname"><a href="/mute/result_dance" style="color:#FCAD36;">레인보우샤베트</a></td>
+					<td class="table4icname"><a href="/mute/result_disco" style="color:#C56834;">오레오쿠키앤크림</a></td>
 				</tr>
 				<tr>
-					<td class="table4tag"><a href="/mute/result_classical" style="color: black;">#클래식</a></td>
-					<td class="table4tag"><a href="/mute/result_r-n-b" style="color: black;">#알앤비</a></td>
+					<td class="table4tag"><a href="/mute/result_dance" style="color: black;">#댄스</a></td>
+					<td class="table4tag"><a href="/mute/result_disco" style="color: black;">#디스코</a></td>
 				</tr>
 			</table>
 		</div>
