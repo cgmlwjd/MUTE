@@ -112,15 +112,15 @@
 				</tr>
 				<tr>
 					<td><a href="/mute/result_folk"><img class="table4img" src="resources/images/gom_ballad.png"></a></td>
-					<td><a href="/mute/result_jazz"><img class="table4img" src="resources/images/gom_hiphop.png"></a></td>
+					<td><a href="/mute/result_r-n-b"><img class="table4img" src="resources/images/gom_rnb.png"></a></td>
 				</tr>
 				<tr>
 					<td class="table4icname"><a href="/mute/result_folk" style="color:#512626;">초코,우리이제헤이즐넛</a></td>
-					<td class="table4icname"><a href="/mute/result_jazz" style="color:#C07A56;">뉴욕치즈케이크</a></td>
+					<td class="table4icname"><a href="/mute/result_r-n-b" style="color:#624224;">오레오쿠키앤크림</a></td>
 				</tr>
 				<tr>
 					<td class="table4tag"><a href="/mute/result_folk" style="color: black;">#발라드</a></td>
-					<td class="table4tag"><a href="/mute/result_jazz" style="color: black;">#재즈</a></td>
+					<td class="table4tag"><a href="/mute/result_r-n-b" style="color: black;">#알앤비</a></td>
 				</tr>
 			</table>
 			

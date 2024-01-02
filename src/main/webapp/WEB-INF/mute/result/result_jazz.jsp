@@ -106,15 +106,15 @@
 				</tr>
 				<tr>
 					<td><a href="/mute/result_classical"><img class="table4img" src="resources/images/gom_classic.png"></a></td>
-					<td><a href="/mute/result_r-n-b"><img class="table4img" src="resources/images/gom_rnb.png"></a></td>
+					<td><a href="/mute/result_folk"><img class="table4img" src="resources/images/gom_ballad.png"></a></td>
 				</tr>
 				<tr>
 					<td class="table4icname"><a href="/mute/result_classical" style="color:#002EA5;">피스타치오</a></td>
-					<td class="table4icname"><a href="/mute/result_r-n-b" style="color:#624224;">오레오쿠키앤크림</a></td>
+					<td class="table4icname"><a href="/mute/result_folk" style="color:#512626;">초코,우리이제헤이즐넛</a></td>
 				</tr>
 				<tr>
 					<td class="table4tag"><a href="/mute/result_classical" style="color: black;">#클래식</a></td>
-					<td class="table4tag"><a href="/mute/result_r-n-b" style="color: black;">#알앤비</a></td>
+					<td class="table4tag"><a href="/mute/result_folk" style="color: black;">#발라드</a></td>
 				</tr>
 			</table>
 			
