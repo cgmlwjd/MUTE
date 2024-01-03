@@ -50,7 +50,7 @@
 
 	<div class="con">
 		<div class="reco">
-			<br> <a class="tag">당신을 위한 #힙합 음악</a><br> <br>
+			<br> <a class="tag">당신을 위한 #디스코 음악</a><br> <br>
 			<table class="table2">
 			<tr id="trhead">
 				<td></td>
